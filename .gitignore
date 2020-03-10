@@ -1,2 +1,6 @@
 ci.xcodeproj/project.xcworkspace/xcuserdata
 ci.xcodeproj/xcuserdata
+README.md
+report.xml
+fastlane/test_output
+output
