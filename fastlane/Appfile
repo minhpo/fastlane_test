@@ -2,4 +2,4 @@ app_identifier "nl.mpsam.test.ci" # The bundle identifier of your app
 apple_id "minhpo@gmail.com" # Your Apple email address
 
 team_id "N2JNQ4GB55" # Developer Portal Team ID
-itc_team_id "577071" # Developer Portal Team ID
+itc_team_id "577071" # iTunes Connect Team ID

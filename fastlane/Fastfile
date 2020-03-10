@@ -23,13 +23,31 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
-    get_build_number
-    increment_build_number
-    scan(
-      clean: true,
-      device: "iPhone SE"
+    match(
+      git_url: "https://github.com/minhpo/fastlane_match.git",
+      type: "appstore"
     )
-    gym # Build your app - more options available
+    disable_automatic_code_signing(
+      path: "ci.xcodeproj"
+    )
+    # match(
+    #   type: "appstore",
+    #   readonly: true
+    # )
+    # sigh
+    # get_build_number
+    # increment_build_number
+    # scan(
+    #   clean: true,
+    #   device: "iPhone SE"
+    # )
+    # gym(
+    #   export_method: "app-store"
+    # )
+    gym
+    enable_automatic_code_signing(
+      path: "ci.xcodeproj"
+    )
     pilot(
       skip_waiting_for_build_processing: true
     )
