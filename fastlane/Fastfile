@@ -32,14 +32,7 @@ def update_code_signing
 end
 
 def build
-  # Disable automatic signing as recommended https://docs.fastlane.tools/codesigning/getting-started/
-  disable_automatic_code_signing(
-    path: "ci.xcodeproj"
-  )
   get_build_number
   increment_build_number
   gym
-  enable_automatic_code_signing(
-    path: "ci.xcodeproj"
-  )
 end
