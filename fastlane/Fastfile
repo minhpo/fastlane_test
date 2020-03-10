@@ -17,10 +17,6 @@ default_platform :ios
 
 platform :ios do
   before_all do
-    unlock_keychain(
-      path: "login.keychain-db",
-      password:ENV['MAC_USER_PASSWORD']
-    )
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
   end
 
@@ -34,20 +30,12 @@ platform :ios do
     disable_automatic_code_signing(
       path: "ci.xcodeproj"
     )
-    # match(
-    #   type: "appstore",
-    #   readonly: true
-    # )
-    # sigh
-    # get_build_number
-    # increment_build_number
-    # scan(
-    #   clean: true,
-    #   device: "iPhone SE"
-    # )
-    # gym(
-    #   export_method: "app-store"
-    # )
+    get_build_number
+    increment_build_number
+    scan(
+      clean: true,
+      device: "iPhone SE"
+    )
     gym
     enable_automatic_code_signing(
       path: "ci.xcodeproj"
